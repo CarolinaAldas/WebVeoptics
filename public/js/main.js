@@ -55,6 +55,8 @@ function goTo(index) {
   setTimeout(function() { isAnimating = false }, 900)
 }
 
+
+
 function updateActiveSlide() {
   document.querySelectorAll('.slide').forEach(function(s, i) {
     s.classList.toggle('active', i === currentSlide)
