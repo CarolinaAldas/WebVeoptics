@@ -625,68 +625,78 @@ body:has(button:hover) #cursor-ring { width: 46px; height: 46px; }
    RESPONSIVE COMPLETO
 ═══════════════════════════════════════ */
 
-/* Tablets landscape y pantallas medianas */
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2,1fr); }
   .slide-title { font-size: clamp(2rem,4vw,3.2rem); }
   .hero-title  { font-size: clamp(3rem,6vw,5rem); }
   .slide-map   { max-width: 50%; }
+  #three-canvas { opacity: 0.7; }
 }
 
-/* Tablets y móviles */
 @media (max-width: 768px) {
-
-  /* En móvil el scroll es VERTICAL — desactivamos horizontal */
   html, body { overflow: hidden; }
 
   #slides-container {
     flex-direction: column;
     width: 100vw;
     height: auto;
-    min-height: 100vh;
     transition: transform .75s cubic-bezier(.77,0,.18,1);
   }
 
   .slide {
     width: 100vw;
-    height: auto;
     min-height: 100vh;
+    height: auto;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5.5rem 6vw 3rem;
-    gap: 2rem;
+    padding: 6rem 6vw 3rem;
+    gap: 1.5rem;
   }
 
-  /* Hero */
+  /* HERO mobile */
   #slide-0 {
-    align-items: center;
     justify-content: flex-end;
-    flex-direction: column;
-    padding-bottom: 3rem;
+    align-items: flex-start;
+    padding-bottom: 3.5rem;
+    position: relative;
+  }
+  #three-canvas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.55;
+    z-index: 0;
   }
   #slide-0 .slide-content {
     max-width: 100%;
-    text-align: center;
+    position: relative;
+    z-index: 2;
   }
-  #slide-0 .slide-sub { margin: 0 auto 2rem; }
-  #three-canvas {
-    position: absolute;
-    width: 100%; height: 60%;
-    top: 0; left: 0;
+  .hero-title {
+    font-size: clamp(2.8rem, 10vw, 4rem);
+    line-height: 1.0;
+  }
+  .slide-sub {
+    font-size: .82rem;
+    max-width: 100%;
   }
 
-  .hero-title { font-size: clamp(2.8rem,9vw,4.5rem); }
-  .slide-title { font-size: clamp(2.2rem,7vw,3rem); }
-
-  /* Ocultar elementos decorativos en móvil */
-  .benefit-visual  { display: none; }
-  .products-visual { display: none; }
+  /* Navbar mobile */
+  #navbar {
+    padding: .9rem 5vw;
+  }
+  #navbar.solid {
+    padding: .8rem 5vw;
+  }
+  .nav-logo img { height: 26px; }
   .nav-slides-indicator { display: none; }
-  .slide-number { display: none; }
+  .nav-cta {
+    font-size: .58rem;
+    padding: .4rem 1rem;
+  }
 
-  /* Navbar */
-  #navbar { padding: 1rem 5vw; }
-  .nav-logo img { height: 28px; }
+  /* Slide number */
+  .slide-number { display: none; }
 
   /* Beneficios */
   #slide-1 {
@@ -694,19 +704,27 @@ body:has(button:hover) #cursor-ring { width: 46px; height: 46px; }
     justify-content: flex-start;
   }
   #slide-1 .slide-content { max-width: 100%; }
+  .benefit-visual { display: none; }
+  .benefit-item {
+    padding: .7rem 0;
+  }
+  .benefit-desc { display: none; }
 
   /* Servicios */
   #slide-2 {
     padding-top: 5.5rem;
     align-items: flex-start;
+    overflow-y: auto;
   }
+  #slide-2 .slide-content { max-width: 100%; width: 100%; }
   .services-grid {
     grid-template-columns: 1fr 1fr;
-    margin-top: 1.5rem;
+    gap: 1px;
+    margin-top: 1.2rem;
   }
-  .svc { padding: 1.2rem 1rem; }
-  .svc-n { font-size: 1.8rem; }
-  .svc-name { font-size: .76rem; }
+  .svc { padding: 1rem .9rem; }
+  .svc-n { font-size: 1.6rem; margin-bottom: .4rem; }
+  .svc-name { font-size: .74rem; }
   .svc-desc { display: none; }
 
   /* Productos */
@@ -715,6 +733,9 @@ body:has(button:hover) #cursor-ring { width: 46px; height: 46px; }
     justify-content: flex-start;
   }
   #slide-3 .slide-content { max-width: 100%; }
+  .products-visual { display: none; }
+  .ptabs { gap: .3rem; }
+  .ptab { font-size: .58rem; padding: .38rem .7rem; }
 
   /* Citas */
   #slide-4 {
@@ -726,34 +747,65 @@ body:has(button:hover) #cursor-ring { width: 46px; height: 46px; }
   }
   #slide-4 .slide-content { max-width: 100%; }
   .slide-info { display: none; }
-  .form-row { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; gap: .6rem; }
+  .form-field input,
+  .form-field select {
+    font-size: .82rem;
+    padding: .55rem .75rem;
+  }
 
   /* Ubicación */
   #slide-5 {
     flex-direction: column;
     padding-top: 5.5rem;
     gap: 1.5rem;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
   }
   #slide-5 .slide-content { max-width: 100%; }
   .slide-map {
     max-width: 100%;
     width: 100%;
-    height: 40vh;
+    height: 35vh;
+    min-height: 200px;
   }
 
-  /* Chat */
-  #chat-window {
-    width: calc(100vw - 2rem);
-    right: 1rem;
-    bottom: 5.5rem;
+  /* Títulos mobile */
+  .slide-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    margin-bottom: 1.2rem;
   }
-  #chat-fab { bottom: 1.5rem; right: 1.5rem; }
+  .scene-tag,
+  .slide-tag { margin-bottom: .6rem; }
+
+  /* Chat mobile */
+  #chat-window {
+    width: calc(100vw - 1.5rem);
+    right: .75rem;
+    bottom: 5rem;
+    max-height: 420px;
+  }
+  #chat-fab {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+
+  /* Botones mobile */
+  .btn-primary {
+    font-size: .65rem;
+    padding: .75rem 1.6rem;
+  }
 }
 
 /* Móviles pequeños */
 @media (max-width: 400px) {
-  .hero-title { font-size: 2.6rem; }
-  .slide-title { font-size: 2rem; }
+  .hero-title { font-size: 2.4rem; }
+  .slide-title { font-size: 1.9rem; }
   .services-grid { grid-template-columns: 1fr; }
-  .btn-primary { font-size: .62rem; padding: .75rem 1.5rem; }
+  .nav-cta { display: none; }
+  #chat-window { width: calc(100vw - 1rem); right: .5rem; }
 }

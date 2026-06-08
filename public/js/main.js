@@ -36,10 +36,8 @@ function goTo(index) {
   var isMobile = window.innerWidth <= 768
 
   if (isMobile) {
-    // En móvil scroll vertical
     container.style.transform = 'translateY(-' + (currentSlide * 100) + 'vh)'
   } else {
-    // En desktop scroll horizontal
     container.style.transform = 'translateX(-' + (currentSlide * 100) + 'vw)'
   }
 
@@ -51,6 +49,10 @@ function goTo(index) {
 
   document.getElementById('navbar')
     .classList.toggle('solid', currentSlide > 0)
+
+  if (typeof window.triggerGlassesTransition === 'function') {
+    window.triggerGlassesTransition(index)
+  }
 
   setTimeout(function() { isAnimating = false }, 900)
 }
@@ -225,7 +227,7 @@ window.addEventListener('resize', function() {
   } else {
     container.style.transform = 'translateX(-' + (currentSlide * 100) + 'vw)'
     container.style.flexDirection = 'row'
-    container.style.width = '600vw'
+    container.style.width = (totalSlides * 100) + 'vw'
     container.style.height = '100vh'
   }
 })
