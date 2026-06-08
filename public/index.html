@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeoOptics — Optometría | Cuenca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAVBAR fijo -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="assets/logo.png" alt="VeoOptics">
+    </a>
+    <div class="nav-slides-indicator">
+      <span class="dot active" onclick="goTo(0)"></span>
+      <span class="dot" onclick="goTo(1)"></span>
+      <span class="dot" onclick="goTo(2)"></span>
+      <span class="dot" onclick="goTo(3)"></span>
+      <span class="dot" onclick="goTo(4)"></span>
+      <span class="dot" onclick="goTo(5)"></span>
+    </div>
+    <button class="nav-cta" onclick="goTo(4)">Agendar cita</button>
+  </nav>
+
+  <!-- SLIDES CONTAINER -->
+  <div id="slides-container">
+
+    <!-- SLIDE 1: Hero -->
+    <div class="slide" id="slide-0">
+      <canvas id="three-canvas"></canvas>
+      <div class="slide-content">
+        <p class="slide-tag">Cuenca, Ecuador</p>
+        <h1 class="hero-title">
+          Tu visión,<br>nuestra
+          <em>pasión</em>
+        </h1>
+        <p class="slide-sub">
+          Cuidamos tu salud visual con tecnología
+          avanzada y atención personalizada.
+        </p>
+        <button class="btn-primary" onclick="goTo(1)">
+          Descubrir →
+        </button>
+      </div>
+      <div class="slide-number">01 / 06</div>
+    </div>
+
+    <!-- SLIDE 2: Beneficios -->
+    <div class="slide" id="slide-1">
+      <div class="slide-content">
+        <p class="slide-tag">Tecnología óptica</p>
+        <h2 class="slide-title">
+          Cristales de<br><em>última generación</em>
+        </h2>
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <span class="benefit-num">01</span>
+            <div>
+              <div class="benefit-name">Antirreflejo premium</div>
+              <div class="benefit-desc">Elimina reflejos molestos en cualquier condición de luz</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">02</span>
+            <div>
+              <div class="benefit-name">Filtro UV400</div>
+              <div class="benefit-desc">Protección total contra rayos ultravioleta</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">03</span>
+            <div>
+              <div class="benefit-name">Bloqueo luz azul</div>
+              <div class="benefit-desc">Reduce la fatiga visual en pantallas digitales</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">04</span>
+            <div>
+              <div class="benefit-name">Fotocromáticos</div>
+              <div class="benefit-desc">Se adaptan automáticamente a la luz del ambiente</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">05</span>
+            <div>
+              <div class="benefit-name">HD Digital</div>
+              <div class="benefit-desc">Visión nítida en todos los ángulos de mirada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-visual benefit-visual">
+        <div class="floating-layers">
+          <div class="layer" style="--i:0">Antirreflejo</div>
+          <div class="layer" style="--i:1">UV 400</div>
+          <div class="layer" style="--i:2">Luz azul</div>
+          <div class="layer" style="--i:3">Fotocromático</div>
+          <div class="layer" style="--i:4">HD Digital</div>
+        </div>
+      </div>
+      <div class="slide-number">02 / 06</div>
+    </div>
+
+    <!-- SLIDE 3: Servicios -->
+    <div class="slide" id="slide-2">
+      <div class="slide-content wide">
+        <p class="slide-tag">Lo que hacemos</p>
+        <h2 class="slide-title">
+          Servicios<br><em>especializados</em>
+        </h2>
+        <div class="services-grid">
+          <div class="svc">
+            <span class="svc-n">01</span>
+            <div class="svc-name">Examen visual completo</div>
+            <div class="svc-desc">Diagnóstico integral con equipos de última generación</div>
+          </div>
+          <div class="svc">
+            <span class="svc-n">02</span>
+            <div class="svc-name">Lentes oftálmicos</div>
+            <div class="svc-desc">Monofocales, bifocales y progresivos de alta calidad</div>
+          </div>
+          <div class="svc">
+            <span class="svc-n">03</span>
+            <div class="svc-name">Lentes de contacto</div>
+            <div class="svc-desc">Adaptación personalizada y seguimiento profesional</div>
+          </div>
+          <div class="svc">
+            <span class="svc-n">04</span>
+            <div class="svc-name">Optometría pediátrica</div>
+            <div class="svc-desc">Cuidado visual especializado para niños</div>
+          </div>
+          <div class="svc">
+            <span class="svc-n">05</span>
+            <div class="svc-name">Terapia visual</div>
+            <div class="svc-desc">Programas para mejorar eficiencia y coordinación visual</div>
+          </div>
+          <div class="svc">
+            <span class="svc-n">06</span>
+            <div class="svc-name">Control de miopía</div>
+            <div class="svc-desc">Estrategias para frenar la progresión miópica</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">03 / 06</div>
+    </div>
+
+    <!-- SLIDE 4: Productos -->
+    <div class="slide" id="slide-3">
+      <div class="slide-content">
+        <p class="slide-tag">Catálogo</p>
+        <h2 class="slide-title">
+          Monturas &amp;<br><em>accesorios</em>
+        </h2>
+        <div class="ptabs">
+          <button class="ptab active" onclick="setTab(this,0)">Monturas</button>
+          <button class="ptab" onclick="setTab(this,1)">Lentes sol</button>
+          <button class="ptab" onclick="setTab(this,2)">Contacto</button>
+          <button class="ptab" onclick="setTab(this,3)">Cristales</button>
+        </div>
+        <p class="ptab-desc" id="ptab-desc">
+          Amplia selección de armazones para adultos y niños.
+          Marcas nacionales e importadas con materiales de alta durabilidad.
+        </p>
+        <div class="ptab-tags" id="ptab-tags">
+          <span class="tag">Acetato</span>
+          <span class="tag">Titanio</span>
+          <span class="tag">TR-90</span>
+          <span class="tag">Metal</span>
+        </div>
+        <button class="btn-primary" style="margin-top:2rem"
+          onclick="goTo(4)">
+          Consultar disponibilidad →
+        </button>
+      </div>
+      <div class="slide-visual products-visual">
+        <div class="product-showcase">
+          <div class="showcase-circle"></div>
+          <div class="showcase-label" id="showcase-label">Monturas Oftálmicas</div>
+        </div>
+      </div>
+      <div class="slide-number">04 / 06</div>
+    </div>
+
+    <!-- SLIDE 5: Citas -->
+    <div class="slide" id="slide-4">
+      <div class="slide-content">
+        <p class="slide-tag">Reserva tu espacio</p>
+        <h2 class="slide-title">Agenda tu<br><em>cita</em></h2>
+        <form id="form-cita" onsubmit="enviarCita(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Nombre *</label>
+              <input type="text" id="f-nombre"
+                placeholder="Tu nombre" required>
+            </div>
+            <div class="form-field">
+              <label>Teléfono *</label>
+              <input type="tel" id="f-telefono"
+                placeholder="0991234567" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Servicio *</label>
+            <select id="f-servicio" required>
+              <option value="">Selecciona...</option>
+              <option>Examen visual completo</option>
+              <option>Lentes oftálmicos</option>
+              <option>Lentes de contacto</option>
+              <option>Optometría pediátrica</option>
+              <option>Terapia visual</option>
+              <option>Control de miopía</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Fecha</label>
+              <input type="date" id="f-fecha">
+            </div>
+            <div class="form-field">
+              <label>Email</label>
+              <input type="email" id="f-email"
+                placeholder="correo@ejemplo.com">
+            </div>
+          </div>
+          <button type="submit" class="btn-primary"
+            id="btn-submit" style="width:100%">
+            Enviar solicitud
+          </button>
+          <div id="form-feedback"></div>
+        </form>
+      </div>
+      <div class="slide-info">
+        <div class="info-item">
+          <span class="info-icon">🕐</span>
+          <div>
+            <div class="info-label">Horario</div>
+            <div class="info-val">Lun–Vie 9:00–18:00<br>Sáb 9:00–13:00</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <div>
+            <div class="info-label">Dirección</div>
+            <div class="info-val">Pío Bravo 2-15 y Manuel Vega<br>Cuenca, Ecuador</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📞</span>
+          <div>
+            <div class="info-label">WhatsApp</div>
+            <div class="info-val">+593 98 557 4955</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">05 / 06</div>
+    </div>
+
+    <!-- SLIDE 6: Ubicación -->
+    <div class="slide" id="slide-5">
+      <div class="slide-content">
+        <p class="slide-tag">Encuéntranos</p>
+        <h2 class="slide-title">Visítanos en<br><em>Cuenca</em></h2>
+        <div class="contact-list">
+          <div class="contact-item">
+            <span>📍</span>
+            <div>
+              <div class="info-label">Dirección</div>
+              <div class="info-val">Pío Bravo 2-15 y Manuel Vega</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>📞</span>
+            <div>
+              <div class="info-label">WhatsApp</div>
+              <div class="info-val">+593 98 557 4955</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>📧</span>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-val">info@veoptics-ecuador.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>🕐</span>
+            <div>
+              <div class="info-label">Horario</div>
+              <div class="info-val">Lun–Vie 9:00–18:00 · Sáb 9:00–13:00</div>
+            </div>
+          </div>
+        </div>
+        <a class="btn-primary"
+          href="https://wa.me/593985574955"
+          target="_blank"
+          style="display:inline-block;margin-top:2rem">
+          📱 WhatsApp directo
+        </a>
+      </div>
+      <div class="slide-map">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.7326005987757!2d-78.9976337!3d-2.8932331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd19aeee0846b3%3A0x6a9909ab43964991!2sVeoptics!5e0!3m2!1ses!2sec!4v1780772391559!5m2!1ses!2sec"
+    allowfullscreen loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  <div class="map-badge">
+    <div class="map-badge-name">VeoOptics</div>
+    <div class="map-badge-addr">Pío Bravo 2-15 y Manuel Vega · Cuenca</div>
+  </div>
+</div>
+      <div class="slide-number">06 / 06</div>
+    </div>
+
+  </div><!-- end slides-container -->
+
+  <!-- CHATBOT -->
+  <button id="chat-fab" onclick="toggleChat()">👁️</button>
+  <div id="chat-window">
+    <div class="chat-header">
+      <div class="chat-avatar">👁️</div>
+      <div>
+        <div class="chat-name">VeoOptics Asistente</div>
+        <div class="chat-status">En línea</div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+    <div id="chat-messages">
+      <div class="msg bot">
+        ¡Hola! Soy la asistente de <strong>VeoOptics</strong> 👁️
+        <br><br>¿En qué te puedo ayudar?
+        <span class="msg-time">ahora</span>
+      </div>
+    </div>
+    <div class="chat-quick">
+      <button class="quick-btn" onclick="quickSend('Quiero agendar una cita')">📅 Agendar</button>
+      <button class="quick-btn" onclick="quickSend('¿Cuáles son los servicios?')">💡 Servicios</button>
+      <button class="quick-btn" onclick="quickSend('¿Cuál es el horario?')">🕐 Horario</button>
+      <button class="quick-btn" onclick="quickSend('¿Dónde están?')">📍 Ubicación</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input"
+        placeholder="Escribe tu mensaje..."
+        onkeydown="if(event.key==='Enter') sendChat()">
+      <button id="chat-send" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
