@@ -144,6 +144,15 @@
     { px: -2.5, py: 0.8, rY: 0.4, rX: 0.05, scale: 0.65 },
   ]
 
+var slideConfigsMobile = [
+  { px: 0.0, py: 0.8, rY: -0.05, rX: 0.03, scale: 0.42 },
+  { px: 0.0, py: 0.6, rY: -0.1,  rX: 0.04, scale: 0.38 },
+  { px: 0.0, py: 0.5, rY: -0.05, rX: 0.03, scale: 0.32 },
+  { px: 0.0, py: 0.6, rY: 0.1,   rX: 0.03, scale: 0.35 },
+  { px: 0.0, py: 0.5, rY: -0.05, rX: 0.04, scale: 0.30 },
+  { px: 0.0, py: 0.4, rY: 0.1,   rX: 0.03, scale: 0.28 },
+]
+
   // ── CREAR PIEZAS ──
   var pieces = []
 
@@ -290,15 +299,25 @@
   // Posición flotante suavizada del grupo completo
   var gPX = 0, gPY = 0, gRY = 0, gRX = 0.04, gSc = 1
 
+// Al inicio de animate(), antes del assembly
+var isMobile = window.innerWidth <= 768
+var activeConfigs = isMobile ? slideConfigsMobile : slideConfigs
+currentSlideConfig = activeConfigs[0]
+nextSlideConfig = activeConfigs[0]
+
+
+
   // Exponer función para que main.js llame al cambiar slide
-  window.triggerGlassesTransition = function(slideIndex) {
-    nextSlideConfig = slideConfigs[Math.min(slideIndex, slideConfigs.length-1)]
-    if (assemblyP >= 1) {
-      isDisassembling = true
-      isReassembling = false
-      disassemblyP = 0
-    }
+ window.triggerGlassesTransition = function(slideIndex) {
+  var isMobile = window.innerWidth <= 768
+  var configs = isMobile ? slideConfigsMobile : slideConfigs
+  nextSlideConfig = configs[Math.min(slideIndex, configs.length-1)]
+  if (assemblyP >= 1) {
+    isDisassembling = true
+    isReassembling = false
+    disassemblyP = 0
   }
+}
 
   window.addEventListener('mousemove', function(e) {
     mouseX = (e.clientX/innerWidth-.5)*2
@@ -333,6 +352,11 @@
   function animate() {
     requestAnimationFrame(animate)
     t += 0.004
+
+// Justo donde dice: if (assemblyP >= 1)
+if (assemblyP >= 1 && !canvas.classList.contains('ready')) {
+  canvas.classList.add('ready')
+}
 
     // ── Fase 1: Assembly inicial ──
     if (assemblyP < 1) {
